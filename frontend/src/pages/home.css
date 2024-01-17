@@ -80,7 +80,7 @@ button {
 }
 
 .buttonMainPage:hover {
-  background-color: white;
+  background: white;
 }
 
 .buttonMainPage:active {
