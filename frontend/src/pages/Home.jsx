@@ -67,7 +67,7 @@ function Home() {
         AUJOURD’HUI L’OREAL ET CAPILLUM 
         </h2>
         <p id="accroche">
-        Un partenaria avec
+        Un partenariat avec
         votre participation. Ensemble adoptons une routine haircare plus
         respectueuse.
       </p>
