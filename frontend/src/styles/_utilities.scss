@@ -30,6 +30,13 @@ $white: #fffff0;
 
 // FONTS 
 
+@font-face {
+  font-family: "campton";
+  src: url("CamptonBold.otf") format("opentype");
+}
+
+
+
 
 @mixin textStyle($fontFamily, $fontFamilyDefault: "sans-serif", $fontSize, $fontWeight, $lineHeight, $fontColor) {
     font-family: $fontFamily, $fontFamilyDefault;
