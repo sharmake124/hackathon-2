@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "camptonBold";
+    src: url("../src/assets/campton-cufonfonts/CamptonBold.otf") format("opentype");
+  }
+
+@font-face {
+    font-family: "camptonText";
+    src: url("../src/assets/campton-cufonfonts/CamptonLight.otf") format("opentype");
+}

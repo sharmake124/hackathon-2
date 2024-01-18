@@ -29,6 +29,21 @@ const getSingleData = async (req, res) => {
   }
 };
 
+// Route qui recupere un produit en fonction du test
+
+const getSingleProduct = async (req, res) => {
+  const { hairColor, hairShape, hairType } = req.params;
+  const sql = `SELECT * FROM ${testTable} WHERE id = ?`;
+
+  try {
+    const [results] = await db.promise().query(sql, [id]);
+    res.json(results);
+  } catch (error) {
+    console.error("MySQL query error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 // CREATE data
 const createData = async (req, res) => {
   // const { values, ..., ... } = req.body;

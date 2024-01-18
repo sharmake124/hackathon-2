@@ -28,6 +28,23 @@ $white: #fffff0;
   width: $width;
 }
 
+// FONTS 
+
+@font-face {
+  font-family: "campton";
+  src: url("CamptonBold.otf") format("opentype");
+}
+
+
+
+
+@mixin textStyle($fontFamily, $fontFamilyDefault: "sans-serif", $fontSize, $fontWeight, $lineHeight, $fontColor) {
+    font-family: $fontFamily, $fontFamilyDefault;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    color: $fontColor;
+
 // FONTS
 
 @mixin textStyle(
@@ -43,6 +60,7 @@ $white: #fffff0;
   font-weight: $fontWeight;
   line-height: $lineHeight;
   color: $fontColor;
+
 }
 
 $fontWeight-thin: 100;
