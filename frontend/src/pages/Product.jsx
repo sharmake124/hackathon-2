@@ -50,9 +50,16 @@ function Product() {
         <p className="titleProduct" id="descriptionVenteComplementaire">
           Nom du produit
         </p>
-        <button className="buttonMainPage" type="button">
-          Participez et commandez
-        </button>
+        <div id="button">
+          <button className="buttonMainPage" type="button">
+            <a href="https://www.loreal-paris.fr/?&wiz_medium=cpc&wiz_source=google&wiz_campaign=oap_goog_ao_othr__bran_search_text_eg_fr__roas&gad_source=1&gclid=Cj0KCQiAtaOtBhCwARIsAN_x-3KsbQaIZ4IPQLJCCjiSMQt8b9XFNgSrkDZoN0HUp9l47drkr3qTCmYaAhA7EALw_wcB&gclsrc=aw.ds">
+              Participez et commandez
+            </a>
+          </button>
+          <button className="buttonMainPage" type="button">
+            <a href="https://www.capillum.fr/capimap">Salons de coiffure</a>
+          </button>
+        </div>
       </div>
     </div>
   );

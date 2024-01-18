@@ -8,7 +8,7 @@ const {
   updateData,
   deleteData,
 } = require("../controllers/basicControllers");
-
+/*
 // GET ALL data
 router.get("/", getAllData);
 
@@ -23,5 +23,5 @@ router.patch("/:id", updateData);
 
 // DELETE data
 router.delete("/:id", deleteData);
-
+*/
 module.exports = router;
