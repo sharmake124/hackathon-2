@@ -7,7 +7,11 @@ import {
 
 // pages & components
 import Home from "./pages/Home";
+
 import Product from "./pages/Product";
+
+import ChoiceForm from "./pages/ChoiceForm";
+
 // styles
 import "./App.scss";
 
@@ -16,7 +20,11 @@ function App() {
     createRoutesFromElements(
       <>
         <Route path="/" element={<Home />} />
+
         <Route path="/result" element={<Product />} />
+
+        <Route path="/choiceform" element={<ChoiceForm />} />
+
       </>
     )
   );
