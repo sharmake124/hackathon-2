@@ -7,14 +7,14 @@ import {
 } from "react-router-dom";
 
 // pages & components
-import Home from "./pages/Products";
+import Items from "./pages/Items";
 import Signup from "./pages/Signup";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/product" element={<Home />} />,
+        <Route path="/items" element={<Items />} />,
         <Route path="/signup" element={<Signup />} />
       </>
     )

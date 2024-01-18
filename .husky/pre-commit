@@ -1,9 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-echo '----- Checking Root...'
-
-echo '----- Done!'
-
-# start prettier and eslint checks
-npm run lint

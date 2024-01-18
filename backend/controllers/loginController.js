@@ -1,9 +1,9 @@
-const moment = require("moment");
 const db = require("./db/db");
 
 const userTable = process.env.TEST_TABLE || "table_name";
 
 // login controller
+// eslint-disable-next-line consistent-return
 const getLogin = async (req, res) => {
   try {
     const { firstName, lastName, birthDate } = req.body;
