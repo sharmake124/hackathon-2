@@ -1,6 +1,14 @@
 @import "./styles/utilities";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+@font-face {
+  font-family: "Campton";
+  src:
+    local("Campton"),
+    url("../font/Campton/CamptonBlack.otf") format("opentype"),
+    url("../font/Campton/CamptonBold.otf") format("opentype");
+}
+
 *,
 *::before,
 *::after {
@@ -11,10 +19,9 @@
 
 body,
 #root {
-  @include flexboxColumn;
   @include viewPort;
 }
 
 body {
-  @include textStyle("Roboto", sans-serif, 1rem, normal, 1, $black);
+  @include textStyle("Campton", sans-serif, 1rem, normal, 1, $black);
 }
