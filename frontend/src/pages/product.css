@@ -9,7 +9,7 @@
     height: 16vh;
 }
 
-h2 {
+.lineProduct {
     margin: 4vh;
 }
 
@@ -26,17 +26,14 @@ h2 {
     justify-content: space-between;
 }
 
-img, p {
-    width: 100%;
-}
 
-img {
+.products {
     padding: 4vw;
     width: auto;
     height: 40vh;
 }
 
-p {
+.titleProduct {
     text-align: center;
 }
 

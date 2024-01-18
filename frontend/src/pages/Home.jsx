@@ -51,22 +51,25 @@ function Home() {
         <img className="nousImg" src={capillum} alt="" />
       </div>
       <p className="topParagraphe">
-        1 million de francais se rendent chaque jour chez le coiffeur, et
-        génèrent 4000 tonnes de céchets capilaires chaque année en France. Les
-        innovations CAPILLUM : Faire du cheveu la fibre de demain en créant des
-        solutions écologiques et innovantes bénéfiques pour notre planète.
+        Chaque jour, un million de Français franchissent les portes des salons
+        de coiffure, laissant derrière eux une empreinte de 4000 tonnes de
+        déchets capillaires par an en France. Mais la solution est entre nos
+        mains avec CAPILLUM, une initiative novatrice soutenue par L'Oréal.
+        Transformons ces déchets en une ressource écoresponsable, empruntant la
+        voie du paillage agricole pour nourrir la terre de manière entièrement
+        naturelle.
       </p>
       <p className="bottomParagraphe">
-        Comme le paillage pour l’agriculture. Il limite l’arrosage et le
-        désherbage. Nourrit la terre & 100% Naturel ! Il est utilisable en
-        pleine terre, au pied des arbres, au verger comme au potager, pour les
-        particuliers et les professionnels.
+        Joignez-vous à nous aujourd'hui, participez à notre partenariat concret
+        entre L'Oréal et CAPILLUM, et adoptons ensemble une routine haircare
+        respectueuse de l'environnement. Ensemble, donnons une nouvelle vie à
+        nos cheveux, tout en préservant notre planète 1 million de francais se
+        rendent chaque jour chez le coiffeur, et génèrent 4000 tonnes de céchets
+        capilaires chaque année en France. Les innovations CAPILLUM : Faire du
+        cheveu la fibre de demain en créant des solutions écologiques et
+        innovantes bénéfiques pour notre planète.
       </p>
-      <h2>AUJOURD’HUI L’OREAL ET CAPILLUM</h2>
-      <p id="accroche">
-        Un partenariat avec votre participation. Ensemble adoptons une routine
-        haircare plus respectueuse.
-      </p>
+
       <button className="buttonMainPage" type="button" onClick={handleClick}>
         ADHERER
       </button>
