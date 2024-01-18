@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Route,
   createBrowserRouter,
@@ -6,14 +7,17 @@ import {
 } from "react-router-dom";
 
 // pages & components
-import Home from "./pages/Home";
-
-// styles
-import "./App.scss";
+import Home from "./pages/Products";
+import Signup from "./pages/Signup";
 
 function App() {
   const router = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<Home />} />)
+    createRoutesFromElements(
+      <>
+        <Route path="/product" element={<Home />} />,
+        <Route path="/signup" element={<Signup />} />
+      </>
+    )
   );
 
   return <RouterProvider router={router} />;

@@ -1,27 +1,10 @@
 const express = require("express");
 
 const router = express.Router();
-const {
-  getAllData,
-  getSingleData,
-  createData,
-  updateData,
-  deleteData,
-} = require("../controllers/basicControllers");
 
-// GET ALL data
-router.get("/", getAllData);
+const { getLogin, createUser } = require("../controllers/loginController");
 
-// GET SINGLE data
-router.get("/:id", getSingleData);
-
-// CREATE data
-router.post("/", createData);
-
-// UPDATE data
-router.patch("/:id", updateData);
-
-// DELETE data
-router.delete("/:id", deleteData);
+router.post("/login", getLogin);
+// router.post("/user", createUser);
 
 module.exports = router;
