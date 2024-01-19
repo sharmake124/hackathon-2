@@ -1,5 +1,9 @@
 @import url(../style.css);
 
+* {
+  margin: 0px;
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -11,18 +15,32 @@
 
 #header {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#headTitle {
+  position: absolute;
+  z-index: 1;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lorealLogo{
+  width: 45%;
 }
 
 h1 {
-  height: 8vh;
   text-align: center;
   margin: 4vh;
   font-weight: bolder;
-  font-size: 12vw;
+  font-size: 8vw;
   font-family: "camptonBold", "Times New Roman", Times, serif;
-  color: white;
-  position: absolute;
-  z-index: 1;
+  color: black;
+  
   top: 20%;
 }
 

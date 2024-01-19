@@ -67,7 +67,7 @@
 }
 
 #imgVenteComplementaire {
-    height: 50vh;
+    height: 40vh;
 }
 
 #descriptionVenteComplementaire {
@@ -77,4 +77,8 @@
 a {
     text-decoration: none;
     color: black;
+}
+
+#button {
+    display: flex;
 }

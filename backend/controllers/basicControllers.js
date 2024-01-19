@@ -1,13 +1,14 @@
 const db = require("../db/db");
 
-const testTable = process.env.TEST_TABLE;
+const table = process.env.TEST_TABLE;
 
-// GET ALL data
-const getAllData = async (req, res) => {
-  const sql = `SELECT * FROM ${testTable}`;
+// GET LES TOP 3 PRODUITS DU CONSOMMATEUR PAS ECOLO
+const getProduct = async (req, res) => {
+  const sql = `SELECT productName, alt_name FROM ${table} WHERE consumerId= ? limit 3`;
 
   try {
-    const [results] = await db.promise().query(sql);
+    const [results] = await db.promise().query(sql, [req.params.id]);
+
     res.json(results);
   } catch (error) {
     console.error("MySQL query error:", error);
@@ -15,13 +16,18 @@ const getAllData = async (req, res) => {
   }
 };
 
-// GET SINGLE data
-const getSingleData = async (req, res) => {
-  const id = parseInt(req.params.id, 10);
-  const sql = `SELECT * FROM ${testTable} WHERE id = ?`;
+// GET LE CONSUMMER ID EN FONCTION DE SES INFOS
+const getSingleConsumer = async (req, res) => {
+  const sql = `SELECT consumerId FROM ${table} WHERE firstName = ? AND lastName = ? AND birthDate = ?`;
 
   try {
-    const [results] = await db.promise().query(sql, [id]);
+    const [results] = await db
+      .promise()
+      .query(sql, [
+        req.query.firstName,
+        req.query.lastName,
+        req.query.birthDate,
+      ]);
     res.json(results);
   } catch (error) {
     console.error("MySQL query error:", error);
@@ -29,69 +35,19 @@ const getSingleData = async (req, res) => {
   }
 };
 
-// Route qui recupere un produit en fonction du test
-
-const getSingleProduct = async (req, res) => {
-  const { hairColor, hairShape, hairType } = req.params;
-  const sql = `SELECT * FROM ${testTable} WHERE id = ?`;
+// LE PRODUIT FINAL EN FONCTION DU QUESTIONNAIRE
+const getBonusProduct = async (req, res) => {
+  const sql = `SELECT alt_name FROM ${table} WHERE hairColor= ? AND hairShape = ? AND hairType = ? limit 1`;
 
   try {
-    const [results] = await db.promise().query(sql, [id]);
-    res.json(results);
-  } catch (error) {
-    console.error("MySQL query error:", error);
-    res.status(500).send("Internal Server Error");
-  }
-};
-
-// CREATE data
-const createData = async (req, res) => {
-  // const { values, ..., ... } = req.body;
-  // const sql = `INSERT INTO ${testTable}(values, ..., ...) VALUES (?, ?, ?)`;
-  /* try {
-    const [result] = await db.promise().query(sql, [values, ..., ...]);
-    res.status(201).send({ id: result.insertId, message: "Data created" });
-  } catch (error) {
-    console.error(error);
-    res.sendStatus(500);
-  } */
-  res.status(200).json({ message: "Data created" });
-};
-
-// UPDATE data
-const updateData = async (req, res) => {
-  // const id = parseInt(req.params.id, 10);
-  // const { values, ..., ... } = req.body;
-  // const sql = `UPDATE ${testTable} SET values = ?, ... = ?, ... = ? WHERE id = ?`;
-
-  /* try {
-    const [result] = await db.promise().query(sql, [values, ..., ..., id]);
-    if (result.affectedRows > 0) {
-      res.status(200).send({ message: "Data updated" });
-    } else {
-      res.sendStatus(404);
-    }
-  } catch (error) {
-    console.error(error);
-    res.sendStatus(500);
-  } */
-
-  res.status(200).json({ message: "Data updated" });
-};
-
-// DELETE data
-const deleteData = async (req, res) => {
-  const id = parseInt(req.params.id, 10);
-  const sql = `DELETE FROM ${testTable} WHERE id = ?`;
-
-  try {
-    const [results] = await db.promise().query(sql, [id]);
-
-    if (results.affectedRows > 0) {
-      res.status(204).send({ message: "Data deleted" });
-    } else {
-      res.sendStatus(404);
-    }
+    const [results] = await db
+      .promise()
+      .query(sql, [
+        req.query.hairColor,
+        req.query.hairShape,
+        req.query.hairType,
+      ]);
+    console.log(res.json(results));
   } catch (error) {
     console.error("MySQL query error:", error);
     res.status(500).send("Internal Server Error");
@@ -99,9 +55,7 @@ const deleteData = async (req, res) => {
 };
 
 module.exports = {
-  getAllData,
-  getSingleData,
-  createData,
-  updateData,
-  deleteData,
+  getProduct,
+  getSingleConsumer,
+  getBonusProduct,
 };

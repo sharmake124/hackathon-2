@@ -1,19 +1,27 @@
-import { useEffect, useNavigate } from "react";
+import { useNavigate } from "react-router-dom";
 import header from "../assets/header.mp4";
 import loreal from "../assets/loreal.jpg";
 import capillum from "../assets/capillum.webp";
 import footer from "../assets/produitsLoreal.jpg";
+import lorealLogos from "../assets/loreal-logos.png";
+import logoCapillum from "../assets/logoCapillum.webp";
 import "./home.css";
 
 function Home() {
+  const navigate = useNavigate();
+
   function handleClick() {
-    // useNavigate("/")
+    navigate("/signup");
   }
 
   return (
     <div className="home">
       <div id="header">
-        <h1>L'Oréal et Capillum</h1>
+        <div id="headTitle">
+          <img src={lorealLogos} alt="" id="lorealLogo" />
+          <h1>et </h1>
+          <img src={logoCapillum} alt="" id="lorealLogo" />
+        </div>
         <video id="headerVideo" autoPlay muted loop>
           <source src={header} />
         </video>
@@ -60,14 +68,15 @@ function Home() {
         naturelle.
       </p>
       <p className="bottomParagraphe">
-        Joignez-vous à nous aujourd'hui, participez à notre partenariat concret
-        entre L'Oréal et CAPILLUM, et adoptons ensemble une routine haircare
-        respectueuse de l'environnement. Ensemble, donnons une nouvelle vie à
-        nos cheveux, tout en préservant notre planète 1 million de francais se
-        rendent chaque jour chez le coiffeur, et génèrent 4000 tonnes de céchets
-        capilaires chaque année en France. Les innovations CAPILLUM : Faire du
-        cheveu la fibre de demain en créant des solutions écologiques et
-        innovantes bénéfiques pour notre planète.
+        Capillum et L'Oréal partagent une vision commune de l'engagement envers
+        la durabilité. Ce partenariat encourage les pratiques éco-friendly tout
+        en offrant des avantages tangibles à nos clients engagés. A partir de 5
+        commandes de produit écologique L’Oréal ou RDV dans un salon partenaire
+        Capillum, vous pouvez bénéficier d’une réduction exclusive sur votre
+        prochaine commande de produits écologique ou RDV chez un coiffeur
+        Capillum. Ensemble, Capillum et L'Oréal redéfinissent les normes de
+        beauté en intégrant la durabilité. Merci de vous joindre à nous dans
+        cette initiative vers une beauté plus verte et consciente.
       </p>
 
       <button className="buttonMainPage" type="button" onClick={handleClick}>

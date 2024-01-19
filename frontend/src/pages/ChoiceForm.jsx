@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ChoiceForm.css";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import StraightHair from "../assets/cheveuxlisses.png";
 import WavyHair from "../assets/cheveuxondules.png";
+import useProductContext from "./context";
 
 function ChoiceForm() {
   const [hair, setHair] = useState(null);
   const [color, setColor] = useState(null);
   const [shape, setShape] = useState(null);
   const [type, setType] = useState(null);
+  const { setProduct } = useProductContext();
+  const navigate = useNavigate();
 
   const handleClickYes = () => {
     setHair("yes");
@@ -21,7 +26,7 @@ function ChoiceForm() {
   console.info(hair);
 
   const handleClickBrown = () => {
-    setColor("brown");
+    setColor("brun");
   };
 
   const handleClickBlond = () => {
@@ -29,39 +34,39 @@ function ChoiceForm() {
   };
 
   const handleClickGinger = () => {
-    setColor("ginger");
+    setColor("roux");
   };
 
   const handleClickOtherColor = () => {
-    setColor("other color");
+    setColor("autre");
   };
 
   console.info(color);
 
   const handleClickStraight = () => {
-    setShape("straight");
+    setShape("lisse");
   };
 
   const handleClickWavy = () => {
-    setShape("wavy");
+    setShape("ondule");
   };
 
   const handleClickFrizzy = () => {
-    setShape("frizzy");
+    setShape("frise");
   };
 
   const handleClickOtherShape = () => {
-    setShape("other shape");
+    setShape("autre");
   };
 
   console.info(shape);
 
   const handleClickDry = () => {
-    setType("dry");
+    setType("sec");
   };
 
   const handleClickGreasy = () => {
-    setType("greasy");
+    setType("gras");
   };
 
   const handleClickNormal = () => {
@@ -69,10 +74,37 @@ function ChoiceForm() {
   };
 
   const handleClickOtherType = () => {
-    setType("other type");
+    setType("autre");
   };
 
   console.info(type);
+
+  useEffect(() => {
+    (async () => {
+      const bonusProduct = await fetch(
+        `http://localhost:3000/bonusProduct?hairColor=${color}&hairShape=${shape}&hairType=${type}`
+      );
+
+      setProduct(await bonusProduct.json());
+    })();
+  }, [
+    handleClickBrown,
+    handleClickBlond,
+    handleClickGinger,
+    handleClickOtherColor,
+    handleClickStraight,
+    handleClickWavy,
+    handleClickFrizzy,
+    handleClickOtherShape,
+    handleClickDry,
+    handleClickGreasy,
+    handleClickNormal,
+    handleClickOtherType,
+  ]);
+
+  const handleClick = () => {
+    navigate("/result");
+  };
 
   return (
     <div className="choiceFormContainer">
@@ -110,7 +142,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickBrown}
-                  className={color === "brown" ? "isOk" : "isNotOk"}
+                  className={color === "brun" ? "isOk" : "isNotOk"}
                 />
                 bruns
               </li>
@@ -126,7 +158,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickGinger}
-                  className={color === "ginger" ? "isOk" : "isNotOk"}
+                  className={color === "roux" ? "isOk" : "isNotOk"}
                 />
                 roux
               </li>
@@ -134,7 +166,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickOtherColor}
-                  className={color === "other" ? "isOk" : "isNotOk"}
+                  className={color === "autre" ? "isOk" : "isNotOk"}
                 />
                 autre
               </li>
@@ -147,7 +179,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickStraight}
-                  className={shape === "straight" ? "isOk" : "isNotOk"}
+                  className={shape === "lisse" ? "isOk" : "isNotOk"}
                 />
                 lisse
               </li>
@@ -155,7 +187,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickWavy}
-                  className={shape === "wavy" ? "isOk" : "isNotOk"}
+                  className={shape === "ondule" ? "isOk" : "isNotOk"}
                 />
                 ondulée
               </li>
@@ -163,7 +195,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickFrizzy}
-                  className={shape === "frizzy" ? "isOk" : "isNotOk"}
+                  className={shape === "frise" ? "isOk" : "isNotOk"}
                 />
                 frisée
               </li>
@@ -171,7 +203,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickOtherShape}
-                  className={shape === "other shape" ? "isOk" : "isNotOk"}
+                  className={shape === "autre" ? "isOk" : "isNotOk"}
                 />
                 autre
               </li>
@@ -184,7 +216,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickDry}
-                  className={type === "dry" ? "isOk" : "isNotOk"}
+                  className={type === "sec" ? "isOk" : "isNotOk"}
                 />
                 sec
               </li>
@@ -192,7 +224,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickGreasy}
-                  className={type === "greasy" ? "isOk" : "isNotOk"}
+                  className={type === "gras" ? "isOk" : "isNotOk"}
                 />
                 gras
               </li>
@@ -208,7 +240,7 @@ function ChoiceForm() {
                 <CheckBadgeIcon
                   width={25}
                   onClick={handleClickOtherType}
-                  className={type === "other type" ? "isOk" : "isNotOk"}
+                  className={type === "autre" ? "isOk" : "isNotOk"}
                 />
                 autre
               </li>
@@ -216,7 +248,7 @@ function ChoiceForm() {
           </div>
         </div>
       </div>
-      <button type="submit" className="submitButton">
+      <button type="submit" className="submitButton" onClick={handleClick}>
         Envoyer
       </button>
     </div>

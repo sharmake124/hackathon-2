@@ -1,4 +1,3 @@
-@import "./styles/utilities";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 @font-face {
@@ -17,10 +16,6 @@
   box-sizing: border-box;
 }
 
-body,
-#root {
-  @include viewPort;
-}
 
 body {
   @include textStyle("Campton", sans-serif, 1rem, normal, 1, $black);

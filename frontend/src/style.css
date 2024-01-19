@@ -7,3 +7,8 @@
     font-family: "camptonText";
     src: url("../src/assets/campton-cufonfonts/CamptonLight.otf") format("opentype");
 }
+
+@font-face {
+  font-family: "outfit";
+  src: url("../src/assets/Outfit/static/Outfit-Bold.ttf") format("opentype");
+}

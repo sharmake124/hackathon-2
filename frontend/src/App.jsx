@@ -12,19 +12,18 @@ import Product from "./pages/Product";
 
 import ChoiceForm from "./pages/ChoiceForm";
 
+import Signup from "./pages/SignupV2";
+
 // styles
-import "./App.scss";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route path="/" element={<Home />} />
-
         <Route path="/result" element={<Product />} />
-
         <Route path="/choiceform" element={<ChoiceForm />} />
-
+        <Route path="/signup" element={<Signup />} />
       </>
     )
   );

@@ -2,26 +2,13 @@ const express = require("express");
 
 const router = express.Router();
 const {
-  getAllData,
-  getSingleData,
-  createData,
-  updateData,
-  deleteData,
+  getProduct,
+  getSingleConsumer,
+  getBonusProduct,
 } = require("../controllers/basicControllers");
-/*
+
 // GET ALL data
-router.get("/", getAllData);
-
-// GET SINGLE data
-router.get("/:id", getSingleData);
-
-// CREATE data
-router.post("/", createData);
-
-// UPDATE data
-router.patch("/:id", updateData);
-
-// DELETE data
-router.delete("/:id", deleteData);
-*/
+router.get("/allProduct/:id", getProduct);
+router.get("/consumer", getSingleConsumer);
+router.get("/bonusProduct", getBonusProduct);
 module.exports = router;

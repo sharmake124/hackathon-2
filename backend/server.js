@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 // 👇 routes
-app.use("/api/basicRoutes", basicRoutes);
+app.use("/", basicRoutes);
 
 // 👇 listen for request
 app.listen(process.env.PORT, () => {
